@@ -15,7 +15,7 @@
 <h1 align="center">💸 Spring Money</h1>
 
 <p align="center">
-<strong>Spring Money is a cutting-edge project designed to seamlessly connect with open-source models using the Ollama Tavily API.</strong>
+<strong>Cutting-edge project designed to seamlessly connect with open-source models using the Ollama Tavily API.</strong>
 </p>
 
 <p>
