@@ -2,28 +2,36 @@
 
 <div align="center" id="top">
 
-<img src="https://media.licdn.com/dms/image/v2/D4D0BAQF9sdMHuuPD-A/company-logo_200_200/company-logo_200_200/0/1693390219903?e=1746662400&v=beta&t=QdCAK5d12JMWwJsFpEoMJjhyjoR8tbsC9uIFutoj9SE" alt="Logo" width="80">
+  <img src="https://media.licdn.com/dms/image/v2/D4D0BAQF9sdMHuuPD-A/company-logo_200_200/company-logo_200_200/0/1693390219903?e=1746662400&v=beta&t=QdCAK5d12JMWwJsFpEoMJjhyjoR8tbsC9uIFutoj9SE" alt="Logo" width="80">
 
-####
+  <br><br>
 
-[![GitHub Repository](https://img.shields.io/badge/GitHub-Deepseek--ollama-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Aniketchavan7/Deepseek-ollama)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aniketchavan7/)
-[![Docker](https://img.shields.io/badge/Docker-Spring%20Money-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/r/springmoney/spring-money)
+  [![GitHub Repository](https://img.shields.io/badge/GitHub-Deepseek--ollama-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Aniketchavan7/Deepseek-ollama)
+  [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aniketchavan7/)
+  [![Docker](https://img.shields.io/badge/Docker-Spring%20Money-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/r/springmoney/spring-money)
 
 </div>
 
 <h1 align="center">💸 Spring Money</h1>
 
 <p align="center">
-<strong>Cutting-edge project designed to seamlessly connect with open-source models using the Ollama Tavily API.</strong>
+  <strong>Revolutionizing Financial Data Interaction through Advanced AI-Driven Analytics</strong>
 </p>
 
 <p>
-This project leverages the power of modern APIs and open-source models to deliver efficient, accurate, and real-time financial data processing for insightful analytics. Built with a focus on performance, scalability, and reliability, Spring Money revolutionizes the way financial data is interacted with by integrating advanced AI-driven models into a robust framework.
+Spring Money is a cutting-edge finance module designed to act as a modern Registered Investment Advisor (RIA) by integrating with open-source models through the Ollama Tavily API. Our solution aggregates and processes data in real time—from sources such as Twitter, RSS feeds, news APIs, and web scraping—to deliver actionable insights across markets including stocks, gold, mutual funds, and real estate.
 </p>
 
 <p>
-<strong>Our mission is to transform financial data interaction through innovation and state-of-the-art technology.</strong>
+By leveraging advanced AI models like Llama 70B and utilizing Nomic embeddings for dynamic categorization, our platform not only summarizes market trends but also performs robust cohort analysis. This enables financial professionals to segment user behaviors and tailor strategies based on in-depth, real-time financial intelligence.
+</p>
+
+<hr>
+
+<h2>🏢 About Spring Money</h2>
+
+<p>
+Spring Money is a forward-thinking fintech company committed to transforming the way financial data is accessed and analyzed. We combine state-of-the-art technology with innovative AI methodologies to empower financial advisors, portfolio managers, and tech-savvy investors with reliable, real-time market insights. Our mission is to foster informed decision-making in the financial sector through continuous innovation and scalable, secure solutions.
 </p>
 
 <hr>
@@ -31,11 +39,11 @@ This project leverages the power of modern APIs and open-source models to delive
 <h2>🚀 Key Features</h2>
 
 <ul>
-  <li><strong>Seamless API Integration:</strong> Connect effortlessly with the <strong>Ollama Tavily API</strong> for smooth communication with open-source models.</li>
-  <li><strong>Real-Time Data Processing:</strong> Leverage high-speed data handling for immediate financial insights.</li>
-  <li><strong>Scalable Architecture:</strong> Built to grow with your needs, ensuring robust performance as demands increase.</li>
-  <li><strong>AI-Driven Analytics:</strong> Utilize advanced models to generate actionable financial intelligence.</li>
-  <li><strong>Reliable &amp; Secure:</strong> Engineered with security and reliability at its core for trusted data interactions.</li>
+  <li><strong>Seamless API Integration:</strong> Effortlessly connect with the <strong>Ollama Tavily API</strong> to tap into advanced open-source models.</li>
+  <li><strong>Real-Time Data Processing:</strong> Harness high-speed data ingestion and processing to deliver immediate financial insights.</li>
+  <li><strong>Scalable Architecture:</strong> Designed for performance and growth, ensuring robust service even as data volume and user demand increase.</li>
+  <li><strong>AI-Driven Analytics:</strong> Utilize cutting-edge AI models to perform market trend analysis and cohort segmentation for actionable intelligence.</li>
+  <li><strong>Reliable &amp; Secure:</strong> Engineered with security and reliability at its core to protect data integrity and ensure trusted operations.</li>
 </ul>
 
 <hr>
@@ -46,7 +54,9 @@ This project leverages the power of modern APIs and open-source models to delive
   <li><strong>Programming Language:</strong> Python</li>
   <li><strong>Containerization:</strong> Docker, Docker Compose</li>
   <li><strong>API Integration:</strong> Ollama Tavily API</li>
-  <li><strong>Additional Tools:</strong> Shell scripting, etc.</li>
+  <li><strong>Data Sources:</strong> Twitter API, RSS feeds, News APIs, Web Scraping</li>
+  <li><strong>AI &amp; Analytics:</strong> Llama 70B, Nomic Embeddings, pgvector for efficient data retrieval</li>
+  <li><strong>Additional Tools:</strong> Shell scripting and more</li>
 </ul>
 
 <hr>
@@ -76,19 +86,25 @@ docker-compose up --build
 
 <h2>📄 Documentation</h2>
 
-<p>For detailed technical documentation and further guidance, please refer to the <a href="https://github.com/Aniketchavan7/Deepseek-ollama">GitHub Repository</a> or consult the documentation provided in the repository.</p>
+<p>
+For detailed technical documentation and further guidance, please refer to the <a href="https://github.com/Aniketchavan7/Deepseek-ollama">GitHub Repository</a> or consult the documentation provided within the repository.
+</p>
 
 <hr>
 
 <h2>🤖 Model Information</h2>
 
-<p>This project utilizes <strong>Deepseek R1 8B</strong>—a powerful model that enhances the analytical capabilities of Spring Money by delivering advanced insights and precise data handling.</p>
+<p>
+This project utilizes <strong>Deepseek R1 8B</strong>—a powerful model that enhances our analytical capabilities by delivering advanced insights and precise data handling, ensuring that financial data is both accurate and actionable.
+</p>
 
 <hr>
 
 <h2>🤝 Contributing</h2>
 
-<p>We welcome contributions from the community! If you'd like to contribute:</p>
+<p>
+We welcome contributions from the community! If you'd like to contribute:
+</p>
 
 <ol>
   <li><strong>Fork</strong> the repository.</li>
@@ -97,13 +113,17 @@ docker-compose up --build
   <li><strong>Push to your branch</strong> and open a Pull Request.</li>
 </ol>
 
-<p>Let's build something amazing together!</p>
+<p>
+Let's build something amazing together!
+</p>
 
 <hr>
 
 <h2>📧 Contact</h2>
 
-<p>For any inquiries, suggestions, or collaboration opportunities, please reach out via <a href="https://www.linkedin.com/in/aniketchavan7/">LinkedIn</a> or GitHub.</p>
+<p>
+For inquiries, suggestions, or collaboration opportunities, please reach out via <a href="https://www.linkedin.com/in/aniketchavan7/">LinkedIn</a> or GitHub.
+</p>
 
 <hr>
 
