@@ -2,7 +2,7 @@
 
 <div align="center" id="top">
 
-<img src="https://s3.ap-south-1.amazonaws.com/townscript-production/images/e3b40c03-041b-4daf-aa60-668797c41c0c.png" alt="Logo" width="80">
+<img src="https://media.licdn.com/dms/image/v2/D4D0BAQF9sdMHuuPD-A/company-logo_200_200/company-logo_200_200/0/1693390219903?e=1746662400&v=beta&t=QdCAK5d12JMWwJsFpEoMJjhyjoR8tbsC9uIFutoj9SE" alt="Logo" width="80">
 
 ####
 
