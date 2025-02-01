@@ -2,7 +2,7 @@
 
 <div align="center" id="top">
 
-<img src="https://github.com/Aniketchavan7/Deepseek-ollama/assets/13554167/20af8286-b386-44a5-9a83-3be1365139c3" alt="Logo" width="80">
+<img src="https://s3.ap-south-1.amazonaws.com/townscript-production/images/e3b40c03-041b-4daf-aa60-668797c41c0c.png" alt="Logo" width="80">
 
 ####
 
