@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Spring Money: High-Level Runtime Architecture",
+    "output": ".archify/architecture-spring-money-runtime-20260929-181422/spring-money-runtime.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/Aniketchavan7/Spring_money-AI-agentic-chatbot.git",
+      "revision": "b12dfdfd312c890c07512d5e0076570cadfcb0e7",
+      "provider": "github",
+      "link_mode": "web"
+    }
+  },
+  "components": [
+    {
+      "id": "client",
+      "type": "external",
+      "label": "Client UI",
+      "sublabel": "Browser / WebSocket",
+      "pos": [40, 140],
+      "size": [120, 60],
+      "sources": [
+        {
+          "path": "backend/server.py",
+          "line": 35,
+          "end_line": 37,
+          "label": "Web template route"
+        }
+      ]
+    },
+    {
+      "id": "gateway",
+      "type": "backend",
+      "label": "FastAPI Gateway",
+      "sublabel": "REST & WS /ws",
+      "brand": "fastapi",
+      "pos": [250, 140],
+      "size": [135, 60],
+      "sources": [
+        {
+          "path": "backend/server.py",
+          "line": 18,
+          "end_line": 43,
+          "label": "FastAPI app & WS route"
+        }
+      ]
+    },
+    {
+      "id": "ws_manager",
+      "type": "backend",
+      "label": "WebSocket Manager",
+      "sublabel": "Async Stream Queues",
+      "pos": [470, 140],
+      "size": [150, 60],
+      "sources": [
+        {
+          "path": "backend/websocket_manager.py",
+          "line": 13,
+          "end_line": 58,
+          "label": "WebSocketManager"
+        }
+      ]
+    },
+    {
+      "id": "orchestrator",
+      "type": "backend",
+      "label": "Agent Coordinator",
+      "sublabel": "LangGraph ChiefEditor",
+      "pos": [705, 140],
+      "size": [150, 60],
+      "sources": [
+        {
+          "path": "multi_agents/agents/master.py",
+          "line": 15,
+          "end_line": 48,
+          "label": "ChiefEditorAgent"
+        }
+      ]
+    },
+    {
+      "id": "researcher",
+      "type": "backend",
+      "label": "GPT Researcher",
+      "sublabel": "Pipeline Controller",
+      "pos": [940, 140],
+      "size": [140, 60],
+      "sources": [
+        {
+          "path": "gpt_researcher/master/agent.py",
+          "line": 11,
+          "end_line": 67,
+          "label": "GPTResearcher"
+        }
+      ]
+    },
+    {
+      "id": "llm",
+      "type": "cloud",
+      "label": "LLM Provider",
+      "sublabel": "Ollama / DeepSeek / OpenAI",
+      "brand": "ollama",
+      "pos": [1165, 140],
+      "size": [135, 60],
+      "sources": [
+        {
+          "path": "gpt_researcher/llm_provider/ollama/ollama.py",
+          "line": 7,
+          "end_line": 39,
+          "label": "OllamaProvider"
+        }
+      ]
+    },
+    {
+      "id": "publisher",
+      "type": "backend",
+      "label": "Report Publisher",
+      "sublabel": "PDF / DOCX / MD Exporter",
+      "pos": [470, 320],
+      "size": [150, 60],
+      "sources": [
+        {
+          "path": "backend/utils.py",
+          "line": 22,
+          "end_line": 45,
+          "label": "write_text_to_md & PDF"
+        }
+      ]
+    },
+    {
+      "id": "compressor",
+      "type": "backend",
+      "label": "Context Compressor",
+      "sublabel": "Chunking & Similarity Filter",
+      "pos": [705, 320],
+      "size": [150, 60],
+      "sources": [
+        {
+          "path": "gpt_researcher/context/compression.py",
+          "line": 12,
+          "end_line": 30,
+          "label": "ContextCompressor"
+        }
+      ]
+    },
+    {
+      "id": "retriever",
+      "type": "backend",
+      "label": "Search & Scraper",
+      "sublabel": "Tavily & BS4 Fetcher",
+      "pos": [940, 320],
+      "size": [140, 60],
+      "sources": [
+        {
+          "path": "gpt_researcher/retrievers/tavily_search/tavily_search.py",
+          "line": 9,
+          "end_line": 23,
+          "label": "TavilySearch"
+        }
+      ]
+    },
+    {
+      "id": "tavily",
+      "type": "cloud",
+      "label": "Tavily Search API",
+      "sublabel": "Live Financial Ingestion",
+      "pos": [1165, 320],
+      "size": [135, 60],
+      "sources": [
+        {
+          "path": "gpt_researcher/retrievers/tavily_search/tavily_search.py",
+          "line": 19,
+          "end_line": 23,
+          "label": "TavilyClient"
+        }
+      ]
+    },
+    {
+      "id": "memory",
+      "type": "database",
+      "label": "Vector Store",
+      "sublabel": "FAISS / pgvector Embeddings",
+      "pos": [705, 490],
+      "size": [150, 60],
+      "sources": [
+        {
+          "path": "gpt_researcher/memory/embeddings.py",
+          "line": 5,
+          "end_line": 29,
+          "label": "Memory & embeddings"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Application Host Environment (Docker Container :8000)",
+      "wraps": [
+        "gateway",
+        "ws_manager",
+        "orchestrator",
+        "researcher",
+        "retriever",
+        "compressor",
+        "publisher",
+        "memory"
+      ]
+    },
+    {
+      "kind": "security-group",
+      "label": "Multi-Agent Research Pipeline",
+      "wraps": [
+        "orchestrator",
+        "researcher",
+        "retriever",
+        "compressor"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "client",
+      "to": "gateway",
+      "label": "WS connect",
+      "variant": "emphasis"
+    },
+    {
+      "from": "gateway",
+      "to": "ws_manager",
+      "label": "stream",
+      "variant": "emphasis"
+    },
+    {
+      "from": "ws_manager",
+      "to": "orchestrator",
+      "label": "dispatch",
+      "variant": "emphasis"
+    },
+    {
+      "from": "orchestrator",
+      "to": "researcher",
+      "label": "conduct",
+      "variant": "emphasis"
+    },
+    {
+      "from": "researcher",
+      "to": "retriever",
+      "label": "query",
+      "variant": "emphasis"
+    },
+    {
+      "from": "retriever",
+      "to": "compressor",
+      "label": "raw docs",
+      "variant": "emphasis"
+    },
+    {
+      "from": "compressor",
+      "to": "publisher",
+      "label": "ranked context",
+      "variant": "emphasis"
+    },
+    {
+      "from": "publisher",
+      "to": "ws_manager",
+      "label": "emit artifacts",
+      "variant": "dashed"
+    },
+    {
+      "from": "retriever",
+      "to": "tavily",
+      "label": "search API",
+      "variant": "default"
+    },
+    {
+      "from": "researcher",
+      "to": "llm",
+      "label": "inference",
+      "variant": "default"
+    },
+    {
+      "from": "compressor",
+      "to": "memory",
+      "label": "embeddings",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "Primary Request Journey",
+      "items": [
+        "Web Client UI opens an interactive WebSocket stream to FastAPI on port 8000.",
+        "WebSocket Manager dispatches tasks into the multi-agent orchestration pipeline.",
+        "ChiefEditorAgent compiles a LangGraph StateGraph connecting planner, researcher, writer, and publisher.",
+        "GPT Researcher orchestrates recursive subtopic analysis and aggregates structured financial findings.",
+        "Report Publisher generates PDF, DOCX, and Markdown artifacts in the outputs directory."
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Ingestion & Context Compression",
+      "items": [
+        "TavilySearch retrieves live real-time financial market intelligence and news.",
+        "Document scraper extracts raw page content via BeautifulSoup / newspaper3k.",
+        "ContextCompressor applies RecursiveCharacterTextSplitter (1000 char chunks) and EmbeddingsFilter.",
+        "Semantic similarity threshold (0.38) filters noise before context assembly.",
+        "Memory layer retains vector representations using FAISS / Nomic embeddings / pgvector."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Trust Boundaries & Dependencies",
+      "items": [
+        "Public Boundary: Untrusted client browser communicates across WebSocket ingress.",
+        "Application Container: FastAPI, stream handlers, and exporters run within the Docker boundary.",
+        "Agent Core: Multi-agent execution and vector operations are isolated in private runtime state.",
+        "External Services: Tavily Search API and Ollama/OpenAI endpoints require authenticated external API calls."
+      ]
+    }
+  ]
+}

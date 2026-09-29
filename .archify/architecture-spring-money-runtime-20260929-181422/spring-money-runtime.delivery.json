@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "6d8a3e0f-f8ad-4bf4-9d5e-8cf497446d8f",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "E:\\Projects\\springmoney\\.archify\\architecture-spring-money-runtime-20260929-181422\\candidate.json",
+  "output": "E:\\Projects\\springmoney\\.archify\\architecture-spring-money-runtime-20260929-181422\\spring-money-runtime.html",
+  "specification": {
+    "sha256": "b13fe9a90b1dc696d6e4d9679eb7e35d1c88c6aafae2a6762c88a6aa3f65b689",
+    "bytes": 8341
+  },
+  "artifact": {
+    "sha256": "25c5349533e04951374241d5ada47f7bacf94aeb53b2e0d70a72da42d67e1fe6",
+    "bytes": 778247
+  }
+}
