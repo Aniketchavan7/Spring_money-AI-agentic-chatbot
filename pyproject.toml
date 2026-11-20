@@ -43,3 +43,7 @@ lxml = { version = ">=4.9.2", extras = ["html_clean"] }
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
