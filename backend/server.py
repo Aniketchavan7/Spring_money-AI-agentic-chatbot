@@ -4,6 +4,7 @@ from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 from backend.websocket_manager import WebSocketManager
 from backend.utils import write_md_to_pdf, write_md_to_word, write_text_to_md
+from backend.config_validator import validate_runtime_environment
 import time
 import json
 import os
@@ -15,12 +16,14 @@ class ResearchRequest(BaseModel):
     agent: str
 
 
-app = FastAPI()
+app = FastAPI(title="Spring Money AI Agent Server", version="0.1.0")
 
-app.mount("/site", StaticFiles(directory="./frontend"), name="site")
-app.mount("/static", StaticFiles(directory="./frontend/static"), name="static")
+if os.path.exists("./frontend"):
+    app.mount("/site", StaticFiles(directory="./frontend"), name="site")
+if os.path.exists("./frontend/static"):
+    app.mount("/static", StaticFiles(directory="./frontend/static"), name="static")
 
-templates = Jinja2Templates(directory="./frontend")
+templates = Jinja2Templates(directory="./frontend") if os.path.exists("./frontend") else None
 
 manager = WebSocketManager()
 
@@ -32,9 +35,30 @@ def startup_event():
         os.makedirs("outputs")
     app.mount("/outputs", StaticFiles(directory="outputs"), name="outputs")
 
+
 @app.get("/")
 async def read_root(request: Request):
-    return templates.TemplateResponse('index.html', {"request": request, "report": None})
+    if templates:
+        return templates.TemplateResponse('index.html', {"request": request, "report": None})
+    return {"status": "ok", "service": "Spring Money AI Agent API"}
+
+
+@app.get("/api/v1/health")
+async def health_check():
+    """Health check endpoint for container orchestrators and load balancers."""
+    env_info = validate_runtime_environment()
+    return {
+        "status": "healthy" if env_info["valid"] else "degraded",
+        "service": "Spring Money AI Agent",
+        "timestamp": time.time(),
+        "warnings": env_info["warnings"],
+    }
+
+
+@app.get("/api/v1/diagnostics")
+async def diagnostics():
+    """Detailed runtime configuration and active environment diagnostics."""
+    return validate_runtime_environment()
 
 
 @app.websocket("/ws")
@@ -62,4 +86,3 @@ async def websocket_endpoint(websocket: WebSocket):
 
     except WebSocketDisconnect:
         await manager.disconnect(websocket)
-
