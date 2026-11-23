@@ -6,6 +6,7 @@
 
   <br><br>
 
+    <a href="https://github.com/Aniketchavan7/Spring_money-AI-agentic-chatbot/stargazers"><img src="https://img.shields.io/github/stars/Aniketchavan7/Spring_money-AI-agentic-chatbot?style=for-the-badge&logo=github&color=7aa2f7&labelColor=1a1b26" alt="GitHub Stars" /></a>
   [![GitHub Repository](https://img.shields.io/badge/GitHub-Deepseek--ollama-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Aniketchavan7/Deepseek-ollama)
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aniketchavan7/)
   [![Docker](https://img.shields.io/badge/Docker-Spring%20Money-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/r/springmoney/spring-money)
@@ -13,6 +14,8 @@
 </div>
 
 <h1 align="center">💸 Spring Money</h1>
+
+> ⭐ **Financial advisory AI agent system. Consider starring the repository if you find it helpful!**
 
 <p align="center">
   <strong>Revolutionizing Financial Data Interaction through Advanced AI-Driven Analytics</strong>
